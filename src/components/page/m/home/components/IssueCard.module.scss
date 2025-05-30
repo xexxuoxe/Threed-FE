@@ -1,0 +1,23 @@
+@use "@styles/common" as *;
+
+.card_container {
+    position: relative;
+    width: 95vw;
+    padding-bottom: 8.667vw;
+    border-bottom: 1px solid #B3B3B3;
+    margin-bottom: 2vw;
+
+    .card_no_Data {
+        width: 40vw;
+        margin: auto;
+        text-align: center;
+        padding: 13.333vw 0;
+
+        .warning_text {
+            font-weight: 500;
+            font-size: 3.333vw;
+            padding-top: 1.733vw;
+            color: #6b6b6b;
+        }
+    }
+}

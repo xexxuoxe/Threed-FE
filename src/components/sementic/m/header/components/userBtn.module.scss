@@ -1,0 +1,56 @@
+@use '@styles/common' as *;
+
+.nav_icons {
+    display: flex;
+    gap: 2.133vw;
+    padding-left: 5.333vw;
+
+    button {
+        border: none;
+        background: none;
+    }
+
+    .icon {
+        width: 6.7vw;
+        height: 6.7vw;
+        border-radius: 50%;
+        transition: .2s;
+
+        &.write_icon {
+            background: #614cf6 url(/images/ico_write.png) no-repeat center/contain;
+            background-size: 3.1vw;
+        }
+
+        &.login_icon {
+            background: #614cf6 url(/images/ico_login.png) no-repeat center/contain;
+            background-size: 3.1vw;
+            background-position-x: 1.467vw;
+        }
+
+        &.ico_logout {
+            background: #614cf6 url('/images/ico_logout.png') no-repeat left/contain;
+            background-size: 3.45vw;
+            background-position: 1.3vw 1.8vw;
+        }
+
+        &.ico_mypage {
+            background: #614cf6 url('/images/ico_mypage.png') no-repeat left / contain;
+            background-size: 3.5vw;
+            background-position: 1.5vw 1.8vw;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: #4233aa;
+        }
+    }
+
+    .on {
+        display: block;
+    }
+
+    .off {
+        display: none;
+    }
+}

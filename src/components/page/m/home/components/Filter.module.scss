@@ -1,0 +1,139 @@
+@use "@styles/common" as *;
+
+.filter_area {
+    width: 90vw;
+    margin: 0 auto;
+
+    .filter_area_top {
+        form {
+            width: 100%;
+            gap: 2.667vw;
+            margin-bottom: 4vw;
+
+            >div {
+                @include flexbox($jc: flex-start, $ai: center);
+                width: auto;
+                height: 10vw;
+                overflow: hidden;
+                border-radius: 1.6vw;
+                filter: drop-shadow(0vw 0vw 1.333vw rgba(0, 0, 0, 0.15));
+
+                input[type="search"] {
+                    border: none;
+                    width: 86vw;
+                    height: 100%;
+                    padding: 1.9vw 3.133vw;
+                    font-size: 2.8vw;
+
+                    &:active,
+                    &:hover,
+                    &:focus {
+                        outline: $color-main;
+                    }
+                }
+
+                button[type="submit"] {
+                    width: 14vw;
+                    height: 100%;
+                    background: $color-main;
+                    border: none;
+
+                    .ico_search {
+                        display: inline-block;
+                        width: 4.5vw;
+                        height: 4vw;
+                        background: url('/images/ico_serach.png') no-repeat center/contain;
+                    }
+                }
+            }
+
+            button[type="reset"] {
+                box-sizing: border-box;
+                width: 100%;
+                height: 9vw;
+                border-radius: 1.067vw;
+                font-size: 3vw;
+                color: #666666;
+                font-weight: 500;
+                border: 0.133vw solid rgba(0, 0, 0, 0.1);
+                background: #fff url('/images/ico_del.png') no-repeat right;
+                filter: drop-shadow(0vw 0vw 1.333vw rgba(0, 0, 0, 0.1));
+                background-size: 2vw;
+                background-position: 50vw 3.5vw;
+                padding-right: 2.667vw;
+                margin-top: 3vw;
+                text-align: center;
+                cursor: pointer;
+
+                &:hover,
+                &:focus {
+                    border: 0.133vw solid $color-main;
+                    color: $color-main;
+                    background: #fff url('/images/ico_del_on.png') no-repeat right;
+                    background-size: 2vw;
+                    background-position: 50vw 3.5vw;
+                }
+            }
+        }
+    }
+
+    .filter_area_bottom {
+        width: 95vw;
+        margin: 7vw 0 9vw;
+        overflow: scroll;
+        scroll-behavior: smooth;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            @include flexbox($jc: space-between, $ai: center);
+            width: max-content;
+            gap: 1.333vw;
+            margin-bottom: 2vw;
+            padding-right: 4vw;
+
+            >* {
+                border-radius: 1.067vw;
+                padding: 2vw 3vw;
+                border: 1px solid #614cf6;
+                font-size: 2.7vw;
+                font-weight: 500;
+                text-align: center;
+                box-shadow: 0 0 0 0.133vw #ddd;
+            }
+
+            .subject_txt {
+                min-width: 8vw;
+                width: 8vw;
+                background-color: $color-main;
+                color: white;
+            }
+
+            button {
+                height: 7.1vw;
+                color: $color-gray-dark;
+                border: 0.133vw solid rgb(226 226 226);
+                background: $color-white;
+                line-height: inherit;
+                padding: 1vw 2.667vw;
+                cursor: pointer;
+                transition: all 0.2s;
+
+                &:hover {
+                    color: $color-main;
+                    border: 0.133vw solid $color-main;
+                }
+
+                &.active {
+                    background-color: #5E3DFF;
+                    border: 0.133vw solid #5E3DFF;
+                    color: $color-white;
+                }
+            }
+        }
+    }
+}

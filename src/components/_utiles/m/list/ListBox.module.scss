@@ -1,0 +1,174 @@
+@use "@styles/common" as *;
+
+.card_box {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+    .card {
+        @include flexbox($jc: flex-start, $ai: flex-start);
+        width: 100%;
+        height: 29.6vw;
+        box-sizing: border-box;
+        background-color: #fff;
+        overflow: hidden;
+        padding: 3vw 0;
+
+        &:hover,
+        &:active,
+        &:focus {
+            transform: scale(1.05) translateY(-1.333vw);
+        }
+
+        .card_box_top {
+            position: relative;
+            width: 27%;
+            height: 23.5vw;
+            border-radius: 10px;
+            background: #f0f8ff;
+            overflow: hidden;
+            margin-right: 5%;
+
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .card_label {
+                @include flexbox($jc: flex-start, $ai: center);
+                position: absolute;
+                left: 2vw;
+                top: 2vw;
+                gap: 0.933vw;
+
+                .card_label_box {
+                    padding: .1vw .8vw .4vw;
+                    background: rgb(255 255 255 / 75%);
+                    ;
+                    box-shadow: 0vw 0vw 1.333vw 0.267vw rgba(0, 0, 0, 0.25);
+                    border-radius: 0.667vw;
+
+                    span {
+                        color: #151515;
+                        font-size: 1.733vw;
+                        font-weight: 500;
+                    }
+
+                    &.label_hot {
+                        background: #ffd1e2;
+
+                        span {
+                            color: #ee1367;
+                        }
+                    }
+                }
+            }
+        }
+
+        .card_box_bottom {
+            width: 65%;
+            height: 100%;
+            position: relative;
+
+            .card_box_title {
+                @include ellipsis;
+                display: -webkit-box;
+                width: 100%;
+                font-size: 3.233vw;
+                font-weight: 500;
+                line-height: 4.3vw;
+                white-space: normal;
+                margin-bottom: 2vw;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+
+            .card_box_lang {
+                @include flexbox($jc: flex-start, $ai: center);
+                width: 100%;
+                gap: 0.8vw;
+
+                span {
+                    display: block;
+                    padding: .3vw 1.3vw .7vw;
+                    border-radius: 0.667vw;
+                    background: #F1EFFE;
+
+                    small {
+                        color: $color-main;
+                        font-size: 2.03vw;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            .box_bottom_fix {
+                @include flexbox($jc: space-between, $ai: center);
+                position: absolute;
+                width: 100%;
+                bottom: 0;
+
+                .card_box_writer {
+                    @include flexbox($jc: flex-start, $ai: center);
+                    gap: 1vw;
+
+                    .writer_img {
+                        position: relative;
+                        display: block;
+                        width: 6vw;
+                        height: 6vw;
+                        margin-right: 1.067vw;
+                        border-radius: 50%;
+                        background-color: #fff;
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    b {
+                        font-size: 2.7vw;
+                        font-weight: 500;
+                        color: $color-black;
+                    }
+                }
+
+                .card_box_info {
+                    @include flexbox($jc: flex-end, $ai: center);
+                    gap: 2vw;
+
+                    div {
+                        @include flexbox($jc: flex-start, $ai: center);
+
+                        i {
+                            margin-right: 1.667vw;
+                        }
+
+                        span {
+                            font-size: 2.6vw;
+                            color: $color-black;
+                            font-weight: 500;
+                        }
+
+                        .ico_eyes {
+                            display: inline-block;
+                            width: 3.15vw;
+                            height: 3.15vw;
+                            background: url("/images/ico_eyes.png") no-repeat center/contain;
+                        }
+
+                        .ico_calender {
+                            display: inline-block;
+                            width: 2.733vw;
+                            height: 2.733vw;
+                            background: url("/images/ico_calendar.png") no-repeat center/contain;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

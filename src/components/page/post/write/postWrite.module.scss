@@ -1,0 +1,147 @@
+@use '@styles/common' as *;
+
+.write_main {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 258px 0;
+    h2 {
+        @include flexCenter(start);
+        gap: 10px;
+        font-size: 24px;
+        padding-bottom: 34px;
+        .img_box {
+            width: 24px;
+            height: 25px;
+            background: url(/images/write.png) center center / cover no-repeat;
+        }
+    }
+    .write_list {
+        @include column-flexbox();
+        gap: 34px;
+        li {
+            @include column-flexbox($ai: start);
+            width: 100%;
+            gap: 10px;
+            label,
+            .write_txt {
+                font-size: 20px;
+                font-weight: 600;
+            }
+            input[type='text'] {
+                width: 100%;
+                height: 50px;
+                border-radius: 6px;
+                border: 1px solid $color-sky-gray;
+                text-indent: 12px;
+                font-size: 14px;
+                &:focus {
+                    outline: none;
+                    border: 1px solid $color-main;
+                }
+            }
+            .write_hashtag_box {
+                @include flexCenter(start);
+                width: calc(100% - 12px);
+                height: 52px;
+                border-radius: 6px;
+                border: 1px solid $color-sky-gray;
+                padding-left: 12px;
+                gap: 4px;
+                input[type='text'] {
+                    border: none;
+                    &:focus {
+                        border: none;
+                    }
+                    text-indent: 0;
+                }
+                &.on {
+                    border: 1px solid $color-main;
+                }
+                .tag_item {
+                    background: $color-main-bg;
+                    color: $color-main;
+                    padding: 8px 12px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    &.animate {
+                        animation: popIn 0.3s ease forwards;
+                    }
+                }
+                .select_box {
+                    position: relative;
+                    &::after {
+                        @include pseudo('', 5px, 5px);
+                        border-bottom: 1.5px solid $color-gray-dark;
+                        border-left: 1.5px solid $color-gray-dark;
+                        position: absolute;
+                        top: calc(50% - 2px);
+                        right: 10px;
+                        transform: translate(-50%, -50%) rotate(-45deg);
+                    }
+                    select {
+                        background: none;
+                        text-align: center;
+                        height: 30px;
+                        width: 120px;
+                        border: 1px solid $color-sky-gray;
+                        border-radius: 8px;
+                        appearance: none;
+                        outline: none;
+                    }
+                }
+            }
+            .btn_box {
+                border-top: 1px solid $color-sky-gray;
+                width: 100%;
+                @include flexCenter(space-between);
+                padding-top: 34px;
+                button {
+                    width: 140px;
+                    height: 62px;
+                    background: none;
+                    font-size: 18px;
+                    font-weight: 500;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    transition: 0.3s;
+                    &.return {
+                        border: 1px solid $color-gray-dark;
+                        color: $color-gray-dark;
+                        &:hover {
+                            background: $color-gray-dark;
+                            color: $color-white;
+                        }
+                    }
+                    &.submit {
+                        border: 1px solid $color-main;
+                        color: $color-white;
+                        background: $color-main;
+                        &:hover {
+                            background: none;
+                            color: $color-main;
+                        }
+                    }
+                }
+            }
+            &:nth-child(2) {
+                ul {
+                    @include flexCenter(start);
+                    width: 100%;
+                    gap: 15px;
+                }
+            }
+        }
+    }
+}
+@keyframes popIn {
+    0% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+    }
+}

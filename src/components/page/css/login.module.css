@@ -1,0 +1,59 @@
+.main {
+  height: 798px;
+  padding-top: 98px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .login_card {
+  background: white;
+  border-radius: 20px;
+  width: 414px;
+  height: 469px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+}
+.main .login_card .login_header {
+  background: linear-gradient(to left, #392c90, #614cf6);
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main .login_card .login_header .login_img {
+  position: relative;
+  width: 50px;
+  height: 60px;
+}
+.main .login_card .login_header .login_img img {
+  position: absolute;
+}
+.main .login_card .login_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #000000;
+  margin: 2.5rem auto;
+  max-width: 314px;
+  width: 100%;
+}
+.main .login_card .login_title::before, .main .login_card .login_title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #c3c3c3;
+}
+.main .login_card .social_buttons {
+  width: 100%;
+  max-width: 314px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  list-style: none;
+}
+.main .login_card .social_buttons li {
+  margin-bottom: 12px;
+}/*# sourceMappingURL=login.module.css.map */

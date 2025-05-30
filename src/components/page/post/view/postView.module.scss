@@ -1,0 +1,75 @@
+@use "@styles/common" as *;
+
+.inner {
+    padding: 198px 0 100px;
+    width: 1200px;
+    margin: 0 auto;
+
+    .main_h2 {
+        font-size: 40px;
+        padding: 35px 0;
+    }
+
+    .write_list {
+        @include flexCenter(space-between);
+    }
+
+    >ul>li {
+        &:first-child {
+            width: 670px;
+            margin-bottom: auto;
+        }
+
+        &:last-child {
+            width: 450px;
+            padding-top: 30px;
+            margin-bottom: auto;
+        }
+    }
+
+    .main_header {
+        padding: 140px 0 42px;
+
+        h2 {
+            @include flexbox($jc: flex-start, $ai: center);
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            gap: 6px;
+
+            .ico_fire {
+                background: url('/images/ico_fire.png') no-repeat center/contain;
+                width: 27px;
+                height: 27px;
+                display: inline-block;
+                margin: 0 0 3px 12px;
+            }
+        }
+    }
+
+    .issueCardOverride {
+        :global(.IssueCard-module-scss-module__iA9ICq__card_container) {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.card_no_Data {
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    padding: 100px 0;
+
+    img {
+        margin-top: 100px;
+    }
+
+    .warning_text {
+        font-weight: 500;
+        font-size: 25px;
+        padding-top: 13px;
+        color: #6b6b6b;
+    }
+}

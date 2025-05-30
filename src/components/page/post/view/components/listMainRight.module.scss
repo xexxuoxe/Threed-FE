@@ -1,0 +1,147 @@
+@use '@styles/common' as *;
+
+.right_card_box {
+    width: 300px;
+    margin: 0 auto;
+    border: 1px solid #cdcdcd;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    .main_right_card {
+        padding: 30px;
+        h3 {
+            @include flexCenter(center);
+            gap: 20px;
+            .img_box {
+                width: 60px;
+                height: 60px;
+                display: inline-block;
+                overflow: hidden;
+                border-radius: 50%;
+                position: relative;
+            }
+            span:last-child {
+                font-size: 25px;
+                font-weight: 700;
+            }
+        }
+        .card_list {
+            padding-top: 10px;
+            @include column-flexbox;
+            gap: 10px;
+            .card_list_second {
+                @include flexCenter(center);
+                gap: 26px;
+                height: 107px;
+                button {
+                    outline: none;
+                    border: none;
+                    background: none;
+                    @include column-flexbox($jc: space-between);
+                    height: 52px;
+                    &:first-child {
+                        cursor: pointer;
+                    }
+                    span {
+                        width: 25px;
+                        height: 25px;
+                        &.heart_box {
+                            background: url(/images/icon_heart_off.png) center center / cover
+                                no-repeat;
+                            &.active {
+                                background: url(/images/ico_heart.png) center center / cover
+                                    no-repeat;
+                            }
+                            cursor: pointer;
+                        }
+                        &.view_box {
+                            background: url(/images/ico_eyes.png) center center / contain no-repeat;
+                            height: 17px;
+                        }
+                    }
+                    p {
+                        font-size: 18px;
+                        color: $color-black;
+                        font-weight: 600;
+                    }
+                }
+            }
+            .navi_list {
+                width: 100%;
+                @include flexCenter(center);
+                a {
+                    display: inline-block;
+                    padding: 10px 0;
+                    width: 66px;
+                    text-align: center;
+                    position: relative;
+                    border-radius: 2px;
+                    color: #8c8c8c;
+                    transition: 0.3s;
+                    &::after {
+                        @include pseudo('', 1px, 20px);
+                        @include position(absolute, $top: 50%, $right: 0);
+                        background: $color-gray;
+                        transform: translateY(-50%);
+                    }
+                    &:hover {
+                        color: $color-black;
+                    }
+                }
+                li:last-child a::after {
+                    display: none;
+                }
+            }
+            .share_btn {
+                border-radius: 8px;
+                background: #f3f6fd;
+                width: 100%;
+                transition: 0.3s;
+                &:hover {
+                    background: #e4ebfd;
+                }
+                a {
+                    @include flexCenter(center);
+                    height: 39px;
+                    width: 100%;
+                    .share_img {
+                        display: inline-block;
+                        width: 19px;
+                        height: 19px;
+                        background: url(/images/share.png) center center / contain no-repeat;
+                    }
+                }
+            }
+        }
+    }
+}
+.button_box {
+    width: 300px;
+    margin: 0 auto;
+    button {
+        margin-top: 14px;
+        width: 100%;
+        border: none;
+        height: 42px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        &.edit_btn {
+            background: $color-black;
+            color: $color-white;
+            border: 1px solid $color-gray-dark;
+            &:hover {
+                background: $color-gray-dark;
+            }
+        }
+        &.delete_btn {
+            background: $color-sky;
+            color: $color-black;
+            border: 1px solid #abc2f6;
+            &:hover {
+                background: #abc2f6;
+            }
+        }
+    }
+}

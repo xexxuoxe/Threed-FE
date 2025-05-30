@@ -1,0 +1,37 @@
+.nav_icons {
+    display: flex;
+    gap: 16px;
+    padding-left: 40px;
+
+    .icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        transition: .2s;
+
+        &.write_icon {
+            background: #614cf6 url(/images/ico_write.png) no-repeat center/contain;
+            background-size: 18.75px;
+        }
+
+        &.login_icon {
+            background: #614cf6 url(/images/ico_login.png) no-repeat center/contain;
+            background-size: 18.75px;
+            background-position-x: 11px;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: #4233aa;
+        }
+    }
+
+    .on {
+        display: block;
+    }
+
+    .off {
+        display: none;
+    }
+}

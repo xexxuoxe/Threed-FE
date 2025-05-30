@@ -1,0 +1,163 @@
+@use '@styles/common' as *;
+
+.write_main {
+    width: 90vw;
+    margin: 0 auto;
+    padding: 32.86vw 0 9.52vw;
+
+    h2 {
+        @include flexCenter(start);
+        gap: 2.38vw;
+        font-size: 4.76vw;
+        padding-bottom: 7.14vw;
+
+        .img_box {
+            width: 5.71vw;
+            height: 5.95vw;
+            background: url(/images/write.png) center center / cover no-repeat;
+        }
+    }
+
+    .write_list {
+        @include column-flexbox();
+        gap: 7.62vw;
+
+        li {
+            @include column-flexbox($ai: start);
+            width: 100%;
+            gap: 2.38vw;
+
+            label,
+            .write_txt {
+                font-size: 3.35vw;
+                font-weight: 600;
+            }
+
+            input[type='text'] {
+                width: 100%;
+                height: 11.9vw;
+                border-radius: 1.43vw;
+                border: 1px solid $color-sky-gray;
+                text-indent: 2.86vw;
+                font-size: 3.33vw;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid $color-main;
+                }
+            }
+
+            .write_hashtag_box {
+                @include flexCenter(start);
+                width: calc(100% - 2.86vw);
+                height: 12.38vw;
+                border-radius: 1.43vw;
+                border: 1px solid $color-sky-gray;
+                padding-left: 2.86vw;
+                gap: 0.95vw;
+
+                input[type='text'] {
+                    border: none;
+
+                    &:focus {
+                        border: none;
+                    }
+
+                    text-indent: 0;
+                }
+
+                &.on {
+                    border: 1px solid $color-main;
+                }
+
+                .tag_item {
+                    background: $color-main-bg;
+                    color: $color-main;
+                    padding: 1.9vw 2.86vw;
+                    border-radius: 4.76vw;
+                    font-size: 2.86vw;
+                    font-weight: 500;
+                    white-space: nowrap;
+
+                    &.animate {
+                        animation: popIn 0.3s ease forwards;
+                    }
+                }
+
+                .select_box {
+                    position: relative;
+
+                    &::after {
+                        @include pseudo('', 1.19vw, 1.19vw);
+                        border-bottom: 0.36vw solid $color-gray-dark;
+                        border-left: 0.36vw solid $color-gray-dark;
+                        position: absolute;
+                        top: calc(50% - 0.48vw);
+                        right: 2.38vw;
+                        transform: translate(-50%, -50%) rotate(-45deg);
+                    }
+
+                    select {
+                        background: none;
+                        text-align: center;
+                        height: 6.67vw;
+                        width: 28.57vw;
+                        border: 1px solid $color-sky-gray;
+                        border-radius: 1.9vw;
+                        appearance: none;
+                        outline: none;
+                        font-size: 3vw;
+                    }
+                }
+            }
+
+            .btn_box {
+                border-top: 1px solid $color-sky-gray;
+                width: 100%;
+                @include flexCenter(space-between);
+                padding-top: 8.1vw;
+
+                button {
+                    width: 25vw;
+                    height: 9.05vw;
+                    background: none;
+                    font-size: 3.81vw;
+                    font-weight: 500;
+                    border-radius: 1.9vw;
+                    cursor: pointer;
+                    transition: 0.3s;
+
+                    &.return {
+                        border: 1px solid $color-gray-dark;
+                        color: $color-gray-dark;
+                    }
+
+                    &.submit {
+                        border: 1px solid $color-main;
+                        color: $color-white;
+                        background: $color-main;
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                ul {
+                    @include flexCenter(start);
+                    width: 100%;
+                    gap: 3.57vw;
+                }
+            }
+        }
+    }
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

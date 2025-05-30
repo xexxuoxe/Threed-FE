@@ -1,0 +1,147 @@
+@use '@styles/common' as *;
+
+.right_card_box {
+    .main_right_card {
+
+        h3 {
+            @include column-flexbox();
+            gap: 4.7vw;
+
+            .img_box {
+                width: 14vw;
+                height: 14vw;
+                display: inline-block;
+                overflow: hidden;
+                border-radius: 50%;
+                position: relative;
+            }
+
+            span:last-child {
+                font-size: 6vw;
+                font-weight: 700;
+            }
+        }
+
+        .card_list {
+            padding-top: 2.3vw;
+            @include column-flexbox;
+            gap: 2.3vw;
+
+            .card_list_second {
+                @include flexCenter(center);
+                gap: 6vw;
+                height: 25vw;
+
+                button {
+                    outline: none;
+                    border: none;
+                    background: none;
+                    @include column-flexbox($jc: space-between);
+                    height: 13vw;
+
+                    span {
+                        width: 5.95vw;
+                        height: 5.95vw;
+
+                        &.heart_box {
+                            background: url(/images/icon_heart_off.png) center center / cover no-repeat;
+
+                            &.active {
+                                background: url(/images/ico_heart.png) center center / cover no-repeat;
+                            }
+                        }
+
+                        &.view_box {
+                            background: url(/images/ico_eyes.png) center center / contain no-repeat;
+                            height: 4.05vw;
+                        }
+                    }
+
+                    p {
+                        font-size: 5vw;
+                        color: $color-black;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .navi_list {
+                width: 100%;
+                @include flexCenter(center);
+
+                li {
+                    width: 100%;
+                }
+
+                a {
+                    display: inline-block;
+                    padding: 2.38vw 0;
+                    width: 100%;
+                    text-align: center;
+                    position: relative;
+                    border-radius: 0.48vw;
+                    color: #8c8c8c;
+                    transition: 0.3s;
+                    font-size: 4vw;
+
+                    &::after {
+                        @include pseudo('', 0.24vw, 4.76vw);
+                        @include position(absolute, $top: 50%, $right: 0);
+                        background: $color-gray;
+                        transform: translateY(-50%);
+                    }
+                }
+
+                li:last-child a::after {
+                    display: none;
+                }
+            }
+
+            .share_btn {
+                border-radius: 1.9vw;
+                background: #f3f6fd;
+                width: 100%;
+                transition: 0.3s;
+
+                a {
+                    @include flexCenter(center);
+                    height: 9.29vw;
+                    width: 100%;
+
+                    .share_img {
+                        display: inline-block;
+                        width: 4.5vw;
+                        height: 4.5vw;
+                        background: url(/images/share.png) center center / contain no-repeat;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.button_box {
+    padding-top: 7vw;
+
+    button {
+        margin-top: 3.33vw;
+        width: 100%;
+        border: none;
+        height: 9.29vw;
+        font-size: 3.8vw;
+        font-weight: 600;
+        border-radius: 1.19vw;
+
+        &.edit_btn {
+            background: $color-black;
+            color: $color-white;
+            border: 0.24vw solid $color-gray-dark;
+        }
+
+        &.delete_btn {
+            background: $color-sky;
+            color: $color-black;
+            border: 0.24vw solid #abc2f6;
+        }
+    }
+}

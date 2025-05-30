@@ -1,0 +1,13 @@
+@use '@styles/common' as *;
+
+.footer {
+    @include flexbox($jc: center, $ai: center);
+    height: 100px;
+    background: #000;
+
+    .footer_text {
+        color: #fff;
+        font: 400 15px/28px 'Roboto', sans-serif;
+        text-align: center;
+    }
+}

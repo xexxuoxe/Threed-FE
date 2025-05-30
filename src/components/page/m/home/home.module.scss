@@ -1,0 +1,55 @@
+@use "@styles/common" as *;
+
+.inner {
+  width: 90vw;
+  margin: auto;
+  padding: 20vw 0;
+
+  .main_header {
+    @include flexbox($jc: space-between, $ai: center);
+    width: 100%;
+    padding: 10vw 0 7vw;
+
+    h2 {
+      @include flexbox($jc: flex-start, $ai: center);
+      font-size: 4.2vw;
+      font-weight: bold;
+      color: #000;
+      gap: 2vw;
+
+      span {
+        display: inline-block;
+        width: 6vw;
+        height: 6vw;
+        transform: translateY(-.8vw);
+      }
+
+      .ico_fire {
+        background: url('/images/ico_fire.png') no-repeat center/contain;
+      }
+
+      .ico_face {
+        background: url('/images/ico_face.png') no-repeat center/contain;
+      }
+    }
+
+    .date_list {
+      select {
+        min-width: 15vw;
+        height: 5.667vw;
+        border: 0.133vw solid $color-gray;
+        border-radius: 1.067vw;
+        color: $color-gray-dark;
+        font-size: 2.433vw;
+        padding: 1vw 1vw .7vw;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url('/images/ico_arrow_down.png') no-repeat center/contain;
+        background-size: 2vw;
+        background-position: 11vw;
+        cursor: pointer;
+      }
+    }
+  }
+}

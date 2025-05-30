@@ -1,0 +1,107 @@
+@use "@styles/common" as *;
+
+.pagination_area {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+  ul {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #555;
+      border-radius: 6px;
+      color: #888;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &[aria-disabled='true'] {
+        pointer-events: none;
+        opacity: 0.4;
+        cursor: default;
+      }
+
+      i {
+        display: block;
+        width: 12px;
+        height: 12px;
+      }
+
+      .ico_double_prev {
+        background: url("/images/ico_double_prev.png") no-repeat center/contain;
+      }
+
+      .ico_prev {
+        background: url("/images/ico_prev.png") no-repeat center/contain;
+      }
+
+      .ico_next {
+        background: url("/images/ico_next.png") no-repeat center/contain;
+      }
+
+      .ico_double_next {
+        background: url("/images/ico_double_next.png") no-repeat center/contain;
+      }
+
+      span {
+        color: $color-gray-dark;
+        font-size: 16px;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        font-weight: bold;
+        border: 1px solid #5E3DFF;
+
+        .ico_double_prev {
+          background: url("/images/ico_double_prev_on.png") no-repeat center/contain;
+        }
+
+        .ico_prev {
+          background: url("/images/ico_prev_on.png") no-repeat center/contain;
+        }
+
+        .ico_next {
+          background: url("/images/ico_next_on.png") no-repeat center/contain;
+        }
+
+        .ico_double_next {
+          background: url("/images/ico_double_next_on.png") no-repeat center/contain;
+        }
+
+        span {
+          color: $color-main;
+        }
+      }
+
+      &.active {
+        background-color: #5E3DFF;
+        font-weight: bold;
+        border: 1px solid #5E3DFF;
+
+        span {
+          color: $color-white;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          span {
+            color: $color-white;
+          }
+        }
+      }
+    }
+  }
+}

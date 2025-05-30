@@ -1,0 +1,125 @@
+@use '@styles/common' as *;
+
+.list_main_top {
+    @include flexCenter(space-between);
+    font-weight: 600;
+    padding: 2.3vw 0;
+    border-bottom: 1.5px solid $color-black;
+
+    h3 {
+        @include flexCenter(center);
+        gap: 2.3vw;
+        font-weight: 600;
+        font-size: 3.8vw;
+
+        span:last-child {
+            font-weight: 600;
+        }
+    }
+
+    .image_wrapper {
+        width: 6vw;
+        height: 6vw;
+        display: inline-block;
+        background: url('/images/view-robot.png') center center/contain no-repeat;
+    }
+
+    .list_days {
+        color: #8d8d8d;
+        font-size: 3.8vw;
+        font-weight: 400;
+    }
+}
+
+.list_main_middle {
+    padding: 2.3vw 0 0;
+
+    p {
+        font-size: 3.8vw;
+        line-height: 7.6vw;
+        font-weight: 200;
+    }
+}
+
+.hashtag {
+    @include flexCenter(start);
+    gap: 1.4vw;
+
+    span {
+        padding: 1.4vw 2.3vw;
+        border-radius: 4.7vw;
+        font-size: 2.8vw;
+        font-weight: 600;
+    }
+
+    .hashtag_skills {
+        color: $color-gray-dark;
+        border: 0.3vw solid #e2e2e2;
+    }
+
+    .hashtag_field {
+        color: $color-gray-dark;
+        background: #f1effe;
+        color: $color-main;
+        border: 0.3vw solid #f1effe;
+    }
+}
+
+.list_main_bottom {
+    h3 {
+        font-size: 3.8vw;
+        padding-bottom: 4.7vw;
+        line-height: 4.7vw;
+        margin-top: 4.7lvw;
+    }
+
+    .list_main_more {
+        border-radius: 5px;
+        overflow: hidden;
+
+        a {
+            padding: 4.7vw;
+            display: block;
+        }
+
+        box-shadow: 0 0 4.7vw rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+    }
+
+    .more_sum_main {
+        border-radius: 5px;
+
+        .more_sum {
+            max-width: 95vw;
+            height: 48vw;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .more_right {
+            width: 100%;
+
+            .more_title {
+                font-size: 4.2vw;
+                padding: 2.3vw 0;
+                font-weight: 500;
+                line-height: 5vw;
+            }
+
+            .more_text {
+                font-size: 2.8vw;
+                font-weight: 200;
+                color: #333;
+                line-height: 4.7vw;
+            }
+
+            .more_bottom {
+                text-align: right;
+                font-size: 3vw;
+                color: #8d8d8d;
+                padding-top: 2.3vw;
+            }
+        }
+    }
+}

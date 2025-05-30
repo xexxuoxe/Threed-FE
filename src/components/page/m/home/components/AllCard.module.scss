@@ -1,0 +1,20 @@
+@use "@styles/common" as *;
+
+.home_card_container {
+    width: 100%;
+    padding-bottom: 5.667vw;
+
+    .card_no_Data {
+        width: 40vw;
+        margin: auto;
+        text-align: center;
+        padding: 13.333vw 0;
+
+        .warning_text {
+            font-weight: 500;
+            font-size: 3.333vw;
+            padding-top: 1.733vw;
+            color: #6b6b6b;
+        }
+    }
+}

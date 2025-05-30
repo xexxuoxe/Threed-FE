@@ -1,0 +1,37 @@
+@use "@styles/common" as *;
+
+.inner {
+  min-width: 1200px;
+  width: 1200px;
+  margin: auto;
+  padding: 98px 0;
+  
+  .main_header {
+    padding: 80px 0 42px;
+
+    h2 {
+      @include flexbox($jc: flex-start, $ai: center);
+      font-size: 24px;
+      font-weight: bold;
+      color: #000;
+      gap: 10px;
+
+      .ico_heart {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background: url('/images/ico_heart.png') no-repeat center/contain;
+      }
+
+      .ico_mypage {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        background: $color-main url('/images/ico_mypage.png') no-repeat center/contain;
+        background-size: 85%;
+        background-position: 3px 10px;
+      }
+    }
+  }
+}

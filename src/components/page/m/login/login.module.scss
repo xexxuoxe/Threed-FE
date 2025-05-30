@@ -1,0 +1,64 @@
+@use '@styles/common' as *;
+
+.main {
+    @include flexbox($jc: center, $ai: center);
+    height: auto;
+    padding: 46vw 0 22vw;
+
+    .login_card {
+        background: white;
+        border-radius: 2.667vw;
+        width: 70vw;
+        height: auto;
+        box-shadow: 0 1.333vw 4vw rgba(0, 0, 0, 0.1);
+        text-align: center;
+        overflow: hidden;
+
+        .login_header {
+            @include flexbox($jc: center, $ai: center);
+            background: linear-gradient(to left, #392c90, #614cf6);
+            height: 25vw;
+
+            .login_img {
+                position: relative;
+                width: 6.667vw;
+                height: 8vw;
+
+                img {
+                    position: absolute;
+                }
+            }
+        }
+
+        .login_title {
+            @include flexbox($jc: center, $ai: center);
+            gap: 2.133vw;
+            margin: 8vw auto;
+            font-size: 2.8vw;
+            font-weight: normal;
+            color: #000000;
+            max-width: 41.867vw;
+            width: 100%;
+
+            &::before,
+            &::after {
+                content: "";
+                flex: 1;
+                height: 0.133vw;
+                background: #c3c3c3;
+            }
+        }
+
+        .social_buttons {
+            width: 100%;
+            max-width: 45vw;
+            margin: 0 auto;
+            padding-bottom: 2rem;
+            list-style: none;
+
+            li {
+                margin-bottom: 1.6vw;
+            }
+        }
+    }
+}
