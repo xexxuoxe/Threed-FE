@@ -1,4 +1,3 @@
-// app/login/[provider]/redirect/page.tsx
 'use client'
 
 import { useEffect } from "react";
@@ -11,13 +10,12 @@ export default function LoginRedirectPage() {
     const pathname = usePathname();
     const code = searchParams.get("code");
 
-    const provider = pathname?.split("/")[2]; // ex: ['','login','kakao','redirect'] → 'kakao'
+    const provider = pathname?.split("/")[2]; // ex: /login/github/redirect
 
     useEffect(() => {
         if (code && provider) {
             getToken(provider, code)
-                .then(({ token, user }) => {
-                    document.cookie = `accessToken=${token}; Path=/`;
+                .then(({ user }) => {
                     if (user?.id) {
                         router.push("/");
                     } else {
@@ -25,7 +23,7 @@ export default function LoginRedirectPage() {
                     }
                 })
                 .catch((error) => {
-                    console.error("Token exchange failed:", error);
+                    console.error("❌ Token exchange failed:", error);
                     router.replace("/login");
                 });
         }

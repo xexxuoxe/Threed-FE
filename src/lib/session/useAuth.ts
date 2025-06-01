@@ -11,20 +11,14 @@ export interface TokenResponse {
     user: User;
 }
 
-
-export async function getToken(provider: string, code: string): Promise<TokenResponse> {
-    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/auth/${provider}/callback?code=${code}`;
-    const response = await fetch(url, {
+export async function getToken(code: string): Promise<TokenResponse> {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/auth/google/callback?code=${code}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
         },
         credentials: "include"
     });
-
-    if (!response.ok) {
-        throw new Error(`API Error: ${response.status}`);
-    }
 
     const data = await response.json();
 
