@@ -22,7 +22,7 @@ export default function LoginRedirectPage() {
                 console.error("Token exchange failed:", error);
             });
         }
-    }, [code]);
+    }, [code, router]);
 
     return <div style={{ textAlign: "center", fontSize: "20px", padding: "100px 0" }}>로그인 처리 중...</div>;
 }
