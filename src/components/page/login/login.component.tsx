@@ -4,8 +4,6 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import GoogleLoginButtons from "@components/page/login/components/googleLoginButtons.component";
-import KakaoLoginButtons from "@components/page/login/components/kakaoLoginButtons";
-import GithubLoginButtons from "@components/page/login/components/githubLoginButtons";
 import { isSession } from "@lib/session/useAuthCheck";
 import styles from "./login.module.scss";
 
@@ -36,12 +34,6 @@ export default function LoginComponent() {
           <ul className={styles.social_buttons}>
             <li>
               <GoogleLoginButtons />
-            </li>
-            <li>
-              <KakaoLoginButtons />
-            </li>
-            <li>
-              <GithubLoginButtons />
             </li>
           </ul>
         </section>
