@@ -37,10 +37,10 @@ export default function ListMainRight({ write, views, before, after, company, po
     const router = useRouter();
 
     const handleEdit = () => {
-        router.push(`/post/write/${postId}`);
+        router.push(`/post/edit/${postId}`);
     };
     const { deletePost } = useDeletePost(postId);
-    const listLink = type === 'company' ? '/company' : '/blog';
+    const listLink = '/blog';
 
     return (
         <>
@@ -48,15 +48,16 @@ export default function ListMainRight({ write, views, before, after, company, po
                 <div className={styles.main_right_card}>
                     <h3>
                         <span className={styles.img_box}>
-                            {company?.trim() ? (
+                            {company && company.trim() ? (
                                 <div className={styles.more_sum}>
                                     <Image src={company} fill={true} alt="sample" unoptimized />
                                 </div>
-                            ) : (<Image
-                                fill={true}
-                                src="/images/ico_base_user.png"
-                                alt="로고"
-                            />
+                            ) : (
+                                <Image
+                                    fill={true}
+                                    src="/images/ico_base_user.png"
+                                    alt="로고"
+                                />
                             )}
                         </span>
                         <span>{write}</span>
@@ -99,12 +100,10 @@ export default function ListMainRight({ write, views, before, after, company, po
                     </div>
                 </div>
             </div>
-            {type !== 'company' && (
-                <div className={styles.button_box}>
-                    <button className={styles.edit_btn} onClick={handleEdit}>수정하기</button>
-                    <button className={styles.delete_btn} onClick={deletePost}>삭제하기</button>
-                </div>
-            )}
+            <div className={styles.button_box}>
+                <button className={styles.edit_btn} onClick={handleEdit}>수정하기</button>
+                <button className={styles.delete_btn} onClick={deletePost}>삭제하기</button>
+            </div>
         </>
     );
 }

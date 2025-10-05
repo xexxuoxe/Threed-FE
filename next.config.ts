@@ -13,7 +13,13 @@ const nextConfig: NextConfig = {
         protocol: "http",
         hostname: "**"
       },
-    ]
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com"
+      },
+    ],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
 

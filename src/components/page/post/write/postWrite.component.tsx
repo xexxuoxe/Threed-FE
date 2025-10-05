@@ -76,7 +76,7 @@ export default function WriteComponent() {
                             <button
                                 type="button"
                                 className={styles.return}
-                                onClick={() => router.push('/post/blog')}
+                                onClick={() => router.push('/blog')}
                             >
                                 목록
                             </button>

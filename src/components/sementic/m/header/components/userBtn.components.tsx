@@ -20,7 +20,7 @@ export default function UserBtnComponent() {
 
   return (
     <div className={styles.nav_icons}>
-      <Link href="/post/write/1" className={session ? styles.on : styles.off}>
+      <Link href="/post/write" className={session ? styles.on : styles.off}>
         <div className={`${styles.icon} ${styles.write_icon}`}></div>
       </Link>
       <Link href="/login" className={session ? styles.off : styles.on}>

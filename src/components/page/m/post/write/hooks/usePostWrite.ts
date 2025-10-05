@@ -3,20 +3,20 @@
 import { useEffect, useRef, useState } from 'react';
 import { useWrite } from './useWrite';
 import { usePost } from './usePost';
-import { useParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export function usePostWrite() {
-    const { id } = useParams();
     const router = useRouter();
-    const isEditMode = id !== '1';
-    const initialPostId = isEditMode ? Number(id) : 0;
+    // URL 파라미터가 없으므로 항상 새 글 작성 모드
+    const isEditMode = false;
+    const initialPostId = 1; // 새 글은 1로 시작
 
     const [postId, setPostId] = useState<number>(initialPostId);
-    const [isPostReady] = useState<boolean>(isEditMode);
-    const [isNewPost, setIsNewPost] = useState<boolean>(!isEditMode);
+    const [isPostReady] = useState<boolean>(false);
+    const [isNewPost, setIsNewPost] = useState<boolean>(true);
 
     const { submit } = useWrite();
-    const { post, loading, error } = usePost(postId, 'member', isPostReady, isEditMode);
+    const { post, loading, error } = usePost(postId, isPostReady, isEditMode);
 
     const titleRef = useRef<HTMLInputElement>(null);
     const editorRef = useRef<any>(null);

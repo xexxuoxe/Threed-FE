@@ -14,7 +14,6 @@ export default function GnbComponent() {
 
   return (
     <div className={styles.nav_menu}>
-      <Link href="/company">디스커버리</Link>
       <Link href="/blog">기술블로그</Link>
       <Link href="/bookmark" className={session ? styles.on : styles.off}>MY북마크</Link>
     </div>

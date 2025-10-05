@@ -24,13 +24,12 @@ interface Post {
 }
 
 interface PostListProps {
-    type: 'company' | 'member';
     posts: Post[];
     isLoading: boolean;
     itemsPerPage?: number;
 }
 
-export default function AllCardComponent({ type, posts, itemsPerPage = 20 }: PostListProps) {
+export default function AllCardComponent({ posts, itemsPerPage = 20 }: PostListProps) {
     const [currentPage, setCurrentPage] = useState(1);
 
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -54,11 +53,7 @@ export default function AllCardComponent({ type, posts, itemsPerPage = 20 }: Pos
                         currentItems.map((item) => (
                             <CardBox
                                 key={item.id}
-                                url={
-                                    type === 'company'
-                                        ? `/post/view/${item.id}?type=company`
-                                        : `/post/view/${item.id}?type=member`
-                                }
+                                url={`/post/view/${item.id}?type=member`}
                                 imageSrc={item.thumbnailImageUrl}
                                 isNew={item.isNew}
                                 isHot={item.isHot}

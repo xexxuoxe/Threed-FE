@@ -14,7 +14,7 @@ export default function useDeletePost(postId: number) {
             await api.delete(`/api/v1/member-posts/${postId}`);
 
             alert('✅ 게시물이 삭제되었습니다.');
-            router.push('/mypage'); // ✅ 삭제 후 목록 이동
+            router.push('/'); // ✅ 삭제 후 목록 이동
         } catch (error) {
             console.error('❌ 삭제 오류:', error);
             alert('❌ 삭제 중 오류가 발생했습니다.');

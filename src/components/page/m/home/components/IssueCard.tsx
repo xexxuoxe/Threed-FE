@@ -6,12 +6,11 @@ import styles from "./IssueCard.module.scss";
 import 'swiper/css';
 
 interface HomeProps {
-  type: 'company' | 'member';
   condition?: 'WEEK' | 'MONTH';
 }
 
-export default function IssuCardComponent({ type, condition }: HomeProps) {
-  const { posts } = usePageData(type, condition ?? "WEEK");
+export default function IssuCardComponent({ condition }: HomeProps) {
+  const { posts } = usePageData(condition ?? "WEEK");
 
   return (
     <ul className={`${styles.card_container} ${styles.issue_card_container}`}>
@@ -22,11 +21,7 @@ export default function IssuCardComponent({ type, condition }: HomeProps) {
               <SwiperSlide key={item.id}>
                 <CardBox
                   key={item.id}
-                  url={
-                    type === 'company'
-                      ? `/post/view/${item.id}?type=company`
-                      : `/post/view/${item.id}?type=member`
-                  }
+                  url={`/m/post/view/${item.id}?type=member`}
                   imageSrc={item.thumbnailImageUrl}
                   isNew={item.isNew}
                   isHot={item.isHot}

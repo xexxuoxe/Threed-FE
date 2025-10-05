@@ -23,21 +23,21 @@ interface Post {
     field: string;
 }
 
-export default function usePost(postId: number, type: 'company' | 'member') {
+export default function usePost(postId: number) {
     const [post, setPost] = useState<Post | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<unknown>(null);
     const hasFetched = useRef(false); // ✅ 중복 호출 방지용 플래그
 
     useEffect(() => {
-        if (!postId || !type) return;
+        if (!postId) return;
         if (hasFetched.current) return;
         hasFetched.current = true;
 
         const fetchPost = async () => {
             setLoading(true);
             try {
-                const url = `/api/v1/${type}-posts/${postId}`;
+                const url = `/api/v1/member-posts/${postId}`;
                 const data = await api.get<Post>(url);
                 setPost(data);
             } catch (err) {
@@ -49,7 +49,7 @@ export default function usePost(postId: number, type: 'company' | 'member') {
         };
 
         fetchPost();
-    }, [postId, type]);
+    }, [postId]);
 
     return { post, loading, error };
 }

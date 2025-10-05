@@ -27,13 +27,11 @@ interface PostResponse {
 interface FilterOptions {
     skills?: string[];
     fields?: string[];
-    companies?: string[];
     keyword?: string;
 }
 
 // 필터 옵션을 기반으로 포스트를 가져오는 함수
 export async function fetchPosts(
-    type: 'company' | 'member',
     filters: FilterOptions = {}
 ): Promise<Post[]> {
     try {
@@ -49,9 +47,6 @@ export async function fetchPosts(
             filters.skills.forEach(skill => queryString.append("skills", skill));
         }
 
-        if (filters.companies?.length && type === 'company') {
-            filters.companies.forEach(company => queryString.append("companies", company));
-        }
 
         if (filters.keyword?.length) {
             queryString.append("keyword", filters.keyword);
@@ -64,7 +59,7 @@ export async function fetchPosts(
 
         // API 요청 수행
         const response = await api.get<PostResponse>(
-            `/api/v1/${type}-posts/search?${queryString.toString()}`
+            `/api/v1/member-posts/search?${queryString.toString()}`
         );
         return response.elements || [];
 

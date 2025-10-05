@@ -51,9 +51,11 @@ export default function usePageData(type: 'bookmark' | 'mypage') {
                 setPosts(response.elements);
             } catch (error) {
                 console.error('데이터 로드 중 오류 발생:', error);
+                // 401 오류의 경우 이미 api.client.ts의 인터셉터에서 처리됨
+                // 다른 오류의 경우 빈 배열로 설정
+                setPosts([]);
             } finally {
                 setLoading(false);
-
             }
         };
 

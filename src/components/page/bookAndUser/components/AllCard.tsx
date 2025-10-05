@@ -37,13 +37,7 @@ export default function AllCardcomponent({ type, itemsPerPage = 20,
                         currentItems.map((item) => (
                             <CardBox
                                 key={item.id}
-                                url={
-                                    item.isCompany === true
-                                        ? `/post/view/${item.id}?type=company`
-                                        : item.isCompany === false
-                                            ? `/post/view/${item.id}?type=member`
-                                            : `/post/view/${item.id}`
-                                }
+                                url={`/post/view/${item.id}?type=member`}
                                 imageSrc={item.thumbnailImageUrl}
                                 isNew={item.isNew}
                                 isHot={item.isHot}

@@ -9,8 +9,10 @@ interface FieldSelectorProps {
 }
 
 export default function FieldSelector({ onChange, initialValue }: FieldSelectorProps) {
-    const getInitialValue = (value?: string) =>
-        value && value.trim() !== '' ? value : '기타';
+    const getInitialValue = (value?: string) => {
+        if (!value || typeof value !== 'string') return '기타';
+        return value.trim() !== '' ? value : '기타';
+    };
 
     const [selected, setSelected] = useState(getInitialValue(initialValue));
 

@@ -3,6 +3,7 @@
 import styles from './CardBox.module.scss';
 import Image from 'next/image';
 import Link from "next/link";
+import { getSafeImageUrl, handleImageError } from '@lib/utils/imageUtils';
 
 interface CardBoxProps {
   url: string;
@@ -36,11 +37,12 @@ export default function CardBox({
         className={styles.card}>
         <div className={styles.card_box_top}>
           <Image
-            src={imageSrc}
+            src={getSafeImageUrl(imageSrc)}
             width={230}
             height={106}
             alt="sample"
             priority
+            onError={(e) => handleImageError(e)}
           />
           <div className={styles.card_label}>
             {isNew && (
@@ -71,22 +73,14 @@ export default function CardBox({
           <div className={styles.box_bottom_fix}>
             <div className={styles.card_box_writer}>
               <i className={styles.writer_img}>
-                {writerImg ?
-                  (<Image
-                    width={33}
-                    height={33}
-                    src={writerImg}
-                    alt="로고"
-                    priority
-                  />)
-                  : (<Image
-                    width={33}
-                    height={33}
-                    src="/images/ico_base_user.png"
-                    alt="로고"
-                    priority
-                  />
-                  )}
+                <Image
+                  width={33}
+                  height={33}
+                  src={getSafeImageUrl(writerImg, '/images/ico_base_user.png')}
+                  alt="로고"
+                  priority
+                  onError={(e) => handleImageError(e, '/images/ico_base_user.png')}
+                />
               </i>
               <b>{writer}</b>
             </div>

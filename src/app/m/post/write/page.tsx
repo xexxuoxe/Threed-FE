@@ -3,11 +3,11 @@ import WriteComponent from "@components/page/m/post/write/postWrite.component";
 import FooterPageComponent from "@components/sementic/m/footer/footer.component";
 
 export default function writePage() {
-  return (
-    <>
-      <HeaderPageComponent />
-      <WriteComponent />
-      <FooterPageComponent />
-    </>
-  )
+    return (
+        <>
+            <HeaderPageComponent />
+            <WriteComponent />
+            <FooterPageComponent />
+        </>
+    )
 }

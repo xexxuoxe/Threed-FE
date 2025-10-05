@@ -22,6 +22,12 @@ export async function getToken(code: string): Promise<TokenResponse> {
 
     const data = await response.json();
 
+    // 토큰을 쿠키와 localStorage에 모두 저장
+    if (data.token && typeof window !== 'undefined') {
+        document.cookie = `accessToken=${data.token}; Path=/`;
+        localStorage.setItem("access_token", data.token);
+    }
+
     return {
         token: data.token,
         user: data.user,

@@ -5,33 +5,30 @@ import IssuCardComponent from './components/IssueCard';
 import AllCardcomponent from './components/AllCard';
 import FilterComponent from './components/Filter';
 import { fetchPosts } from './hooks/useFilteredPosts';
-import { skillOptions, techStackOptions, companyOptions } from './constants/filterOptions';
+import { skillOptions, techStackOptions } from './constants/filterOptions';
 import styles from './home.module.scss';
 
 interface HomeProps {
-    type: 'company' | 'member';
     condition?: 'WEEK' | 'MONTH';
 }
 
-export default function HomeComponent({ type }: HomeProps) {
+export default function HomeComponent({ }: HomeProps) {
     const [period, setPeriod] = useState<'WEEK' | 'MONTH'>('WEEK');
     const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
-    const [selectedCompany, setSelectedCompany] = useState<string[]>([]);
     const [selectedFields, setSelectedFields] = useState<string[]>([]);
     const [keyword, setKeyword] = useState<string>('');
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    const fieldFilterOptions = type === 'company' ? companyOptions : techStackOptions;
+    const fieldFilterOptions = techStackOptions;
 
     // 필터링된 데이터 가져옴
     useEffect(() => {
         const loadFilteredPosts = async () => {
             setIsLoading(true);
             try {
-                const data = await fetchPosts(type, {
+                const data = await fetchPosts({
                     skills: selectedSkills,
-                    companies: selectedCompany,
                     fields: selectedFields,
                     keyword: keyword
                 });
@@ -43,22 +40,13 @@ export default function HomeComponent({ type }: HomeProps) {
             }
         };
         loadFilteredPosts()
-    }, [selectedSkills, selectedCompany, selectedFields, keyword, type]);
+    }, [selectedSkills, selectedFields, keyword]);
 
     const handleSkillClick = (skill: string) => {
         setSelectedSkills((prev) => {
             const updated = prev.includes(skill)
                 ? prev.filter((s) => s !== skill)
                 : [...prev, skill];
-
-            return updated;
-        });
-    };
-    const handleCompanyClick = (company: string) => {
-        setSelectedCompany((prev) => {
-            const updated = prev.includes(company)
-                ? prev.filter((c) => c !== company)
-                : [...prev, company];
 
             return updated;
         });
@@ -75,7 +63,6 @@ export default function HomeComponent({ type }: HomeProps) {
     };
 
     const handleReset = () => {
-        setSelectedCompany([]);
         setSelectedSkills([]);
         setSelectedFields([]);
         setKeyword('');
@@ -112,23 +99,22 @@ export default function HomeComponent({ type }: HomeProps) {
                     </select>
                 </div>
             </div>
-            <IssuCardComponent type={type} condition={period} />
+            <IssuCardComponent condition={period} />
             <div className={styles.main_header}>
                 <h2><span className={styles.ico_face}></span>새로운 기술을 확인해보세요.</h2>
             </div>
             <FilterComponent
-                label={type === 'company' ? '회사' : '스킬'}
+                label="스킬"
                 fields={skillOptions}
                 skills={fieldFilterOptions}
-                selectedSkills={type === 'company' ? selectedCompany : selectedSkills}
+                selectedSkills={selectedSkills}
                 selectedFields={selectedFields}
-                onSkillClick={type === 'company' ? handleCompanyClick : handleSkillClick}
+                onSkillClick={handleSkillClick}
                 onFieldClick={handleFieldClick}
                 onReset={handleReset}
                 onSearch={handleSearch}
             />
             <AllCardcomponent
-                type={type}
                 posts={posts}
                 isLoading={isLoading}
             />

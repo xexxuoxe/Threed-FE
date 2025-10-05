@@ -28,7 +28,6 @@ interface PostResponse {
 }
 
 export default function usePageData(
-    type: 'company' | 'member',
     condition?: 'WEEK' | 'MONTH'
 ) {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -39,7 +38,7 @@ export default function usePageData(
         const fetchPopular = async () => {
             try {
                 const response = await api.get<PostResponse>(
-                    `/api/v1/${type}-posts/popular?condition=${condition}`
+                    `/api/v1/member-posts/popular?condition=${condition}`
                 );
                 setPosts(response.elements);
             } catch (err) {
@@ -50,7 +49,7 @@ export default function usePageData(
         };
 
         fetchPopular();
-    }, [type, condition]);
+    }, [condition]);
 
     return { posts, loading, error };
 }

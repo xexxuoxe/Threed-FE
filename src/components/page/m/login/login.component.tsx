@@ -37,12 +37,6 @@ export default function LoginComponent() {
             <li>
               <GoogleLoginButtons />
             </li>
-            <li>
-              <KakaoLoginButtons />
-            </li>
-            <li>
-              <GithubLoginButtons />
-            </li>
           </ul>
         </section>
       </main>

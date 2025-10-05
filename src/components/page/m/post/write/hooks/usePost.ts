@@ -11,7 +11,6 @@ interface Post {
 
 export function usePost(
     postId: number | undefined,
-    type: 'company' | 'member',
     enabled: boolean = true,
     isEditMode: boolean = false // ✅ 수정 모드 여부 추가
 ) {
@@ -20,14 +19,14 @@ export function usePost(
     const [error, setError] = useState<unknown>(null);
 
     useEffect(() => {
-        if (!enabled || !postId || postId === 1 || !type) return;
+        if (!enabled || !postId || postId === 1) return;
 
         const fetchPost = async () => {
             setLoading(true);
             try {
                 const url = isEditMode
-                    ? `/api/v1/${type}-posts/${postId}/edit`
-                    : `/api/v1/${type}-posts/${postId}`;
+                    ? `/api/v1/member-posts/${postId}/edit`
+                    : `/api/v1/member-posts/${postId}`;
                 const data = await api.get<Post>(url);
                 setPost(data);
             } catch (err) {
@@ -39,7 +38,7 @@ export function usePost(
         };
 
         fetchPost();
-    }, [postId, type, enabled, isEditMode]);
+    }, [postId, enabled, isEditMode]);
 
     return { post, loading, error };
 }

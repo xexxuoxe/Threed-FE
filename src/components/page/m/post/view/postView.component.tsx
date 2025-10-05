@@ -14,9 +14,9 @@ export default function ViewComponent() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const postId = Number(params?.id);
-    const type = (searchParams?.get('type') as 'company' | 'member') ?? 'company';
+    const type = 'member';
 
-    const { post, loading, error } = useView(postId, type);
+    const { post, loading, error } = useView(postId);
 
     if (!loading && error) {
         router.replace('/');
@@ -47,7 +47,7 @@ export default function ViewComponent() {
                         date={new Date(post.createdAt).toLocaleDateString('ko-KR')}
                         link={post.sourceUrl}
                         imageSrc={post.thumbnailImageUrl}
-                        type={type}
+                        type="member"
                         skills={post.skills}
                         field={post.field}
                     />
@@ -62,7 +62,7 @@ export default function ViewComponent() {
                         company={post.author.imageUrl}
                         postId={post.id}
                         isBookmarked={post.isBookmarked}
-                        type={type}
+                        type="member"
                     />
                 </li>
             </ul>
@@ -71,7 +71,7 @@ export default function ViewComponent() {
                 <h2><span className={styles.ico_fire}></span><span>가장 많이 읽은 글</span></h2>
             </div>
             <div className={styles.issueCardOverride}>
-                <IssuCardComponent type={type} />
+                <IssuCardComponent />
             </div>
         </main>
     );
