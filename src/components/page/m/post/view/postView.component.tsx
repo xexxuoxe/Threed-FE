@@ -7,14 +7,14 @@ import useView from './hooks/useView';
 import Loading from '@lib/loading/full.component';
 import Image from 'next/image';
 import IssuCardComponent from '@components/page/m/home/components/IssueCard';
-import { useParams, useSearchParams, useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
 export default function ViewComponent() {
     const params = useParams();
-    const searchParams = useSearchParams();
+    // const searchParams = useSearchParams();
     const router = useRouter();
     const postId = Number(params?.id);
-    const type = 'member';
+    // const type = 'member';
 
     const { post, loading, error } = useView(postId);
 

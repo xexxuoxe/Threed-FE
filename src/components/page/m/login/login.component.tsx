@@ -4,8 +4,6 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import GoogleLoginButtons from "@components/page/m/login/components/googleLoginButtons.component";
-import KakaoLoginButtons from "@components/page/m/login/components/kakaoLoginButtons";
-import GithubLoginButtons from "@components/page/m/login/components/githubLoginButtons";
 import { isSession } from "@lib/session/useAuthCheck";
 import styles from "./login.module.scss";
 
