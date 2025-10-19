@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import useCopy from '../hooks/useCopy';
 import useHeart from '../hooks/useHeart';
+import React, { useEffect, useState } from "react";
+import { isSession } from "@lib/session/useAuthCheck";
 import { useRouter } from 'next/navigation';
 import useDeletePost from '../hooks/useDeletePost';
 
@@ -41,6 +43,12 @@ export default function ListMainRight({ write, views, before, after, company, po
     };
     const { deletePost } = useDeletePost(postId);
     const listLink = '/blog';
+
+    const [session, setSession] = useState(false);
+
+    useEffect(() => {
+        setSession(isSession());
+    }, []);
 
     return (
         <>
@@ -100,10 +108,13 @@ export default function ListMainRight({ write, views, before, after, company, po
                     </div>
                 </div>
             </div>
-            <div className={styles.button_box}>
-                <button className={styles.edit_btn} onClick={handleEdit}>수정하기</button>
-                <button className={styles.delete_btn} onClick={deletePost}>삭제하기</button>
-            </div>
+            {session ?
+                <div className={styles.button_box}>
+                    <button className={styles.edit_btn} onClick={handleEdit}>수정하기</button>
+                    <button className={styles.delete_btn} onClick={deletePost}>삭제하기</button>
+                </div>
+                : ''
+            }
         </>
     );
 }

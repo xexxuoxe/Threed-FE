@@ -7,22 +7,24 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com"
+      },
+      {
+        protocol: "https",
         hostname: "**"
       },
       {
         protocol: "http",
         hostname: "**"
       },
-      {
-        protocol: "https",
-        hostname: "via.placeholder.com"
-      },
     ],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-
-
 
   webpack: (config) => {
     config.resolve.alias = {

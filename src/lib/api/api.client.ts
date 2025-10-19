@@ -36,8 +36,15 @@ async function refreshAccessToken(): Promise<string | null> {
     }
 }
 
+// 환경변수 디버깅
+console.log("⚠️⚠️환경변수 에러", process.env.NEXT_PUBLIC_BASE_URL);
+
+// 임시 하드코딩 (환경변수 문제 해결 전까지)
+const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+console.log("🔧 사용할 baseURL:", baseURL);
+
 const axiosInstance = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+    baseURL: baseURL,
     headers: {
         "Content-Type": "application/json;charset=utf-8",
     },

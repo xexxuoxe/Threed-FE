@@ -43,6 +43,7 @@ export default function usePageData(
                 setPosts(response.elements);
             } catch (err) {
                 setError(err);
+                console.log("1차 error");
             } finally {
                 setLoading(false);
             }
