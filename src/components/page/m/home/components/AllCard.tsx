@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import CardBox from "@components/_utiles/m/list/ListBox.component";
 import Pagination from "@components/_utiles/pagination/pagination.component";
+import CardSkeleton from "@components/_utiles/skeleton/CardSkeleton";
 import styles from "./AllCard.module.scss";
 
 interface Post {
@@ -29,7 +30,7 @@ interface PostListProps {
     itemsPerPage?: number;
 }
 
-export default function AllCardComponent({ posts, itemsPerPage = 20 }: PostListProps) {
+export default function AllCardComponent({ posts, itemsPerPage = 20, isLoading = false }: PostListProps) {
     const [currentPage, setCurrentPage] = useState(1);
 
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -49,7 +50,9 @@ export default function AllCardComponent({ posts, itemsPerPage = 20 }: PostListP
         <>
             <div className={styles.home_card_container}>
                 <ul className={styles.card_list}>
-                    {currentItems && currentItems.length > 0 ? (
+                    {isLoading ? (
+                        <CardSkeleton count={itemsPerPage} />
+                    ) : currentItems && currentItems.length > 0 ? (
                         currentItems.map((item) => (
                             <CardBox
                                 key={item.id}
