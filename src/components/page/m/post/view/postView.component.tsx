@@ -32,7 +32,7 @@ export default function ViewComponent() {
                 height={50}
                 alt="warning"
             />
-            <p className={styles.warning_text}>데이터가 없습니다</p>
+            <p className={styles.warning_text}>게시글이 없습니다</p>
         </div>
     );
 

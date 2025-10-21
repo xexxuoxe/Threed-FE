@@ -71,7 +71,7 @@ export default function AllCardComponent({ posts, itemsPerPage = 20, isLoading =
                     ) : (
                         <div className={styles.card_no_Data}>
                             <Image src={'/images/ico_warning.png'} width={50} height={50} alt="warning" />
-                            <p className={styles.warning_text}>데이터가 없습니다</p>
+                            <p className={styles.warning_text}>게시글이 없습니다</p>
                         </div>
                     )}
                 </ul>
