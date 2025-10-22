@@ -1,0 +1,112 @@
+@use "@styles/common" as *;
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: -26.667vw 0;
+  }
+
+  100% {
+    background-position: calc(26.667vw + 100%) 0;
+  }
+}
+
+.skeleton_list_item {
+  width: 100%;
+  height: 29.6vw;
+  padding: 3vw 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+}
+
+.skeleton_image {
+  width: 27%;
+  height: 23.5vw;
+  border-radius: 10px;
+  margin-right: 5%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: skeleton-loading 1.5s infinite linear;
+}
+
+.skeleton_content {
+  width: 65%;
+  height: 100%;
+  position: relative;
+}
+
+.skeleton_title {
+  width: 90%;
+  height: 4.3vw;
+  margin-bottom: 1vw;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: skeleton-loading 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+.skeleton_tags {
+  display: flex;
+  gap: 0.8vw;
+  margin-bottom: 2vw;
+}
+
+.skeleton_tag {
+  width: 15vw;
+  height: 3vw;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: skeleton-loading 1.5s infinite linear;
+  border-radius: 0.667vw;
+}
+
+.skeleton_info {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.skeleton_avatar {
+  width: 6vw;
+  height: 6vw;
+  border-radius: 50%;
+  margin-right: 1.067vw;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: skeleton-loading 1.5s infinite linear;
+}
+
+.skeleton_user_info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.skeleton_name {
+  width: 20vw;
+  height: 2.7vw;
+  margin-bottom: 1vw;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: skeleton-loading 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+.skeleton_meta {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2vw;
+}
+
+.skeleton_meta_item {
+  width: 10vw;
+  height: 2vw;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: skeleton-loading 1.5s infinite linear;
+  border-radius: 4px;
+}

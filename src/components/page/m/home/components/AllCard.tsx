@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import CardBox from "@components/_utiles/m/list/ListBox.component";
 import Pagination from "@components/_utiles/pagination/pagination.component";
-import CardSkeleton from "@components/_utiles/skeleton/CardSkeleton";
+import ListSkeleton from "@components/_utiles/m/skeleton/ListSkeleton";
 import styles from "./AllCard.module.scss";
 
 interface Post {
@@ -51,7 +51,7 @@ export default function AllCardComponent({ posts, itemsPerPage = 20, isLoading =
             <div className={styles.home_card_container}>
                 <ul className={styles.card_list}>
                     {isLoading ? (
-                        <CardSkeleton count={itemsPerPage} />
+                        <ListSkeleton count={itemsPerPage} />
                     ) : currentItems && currentItems.length > 0 ? (
                         currentItems.map((item) => (
                             <CardBox
